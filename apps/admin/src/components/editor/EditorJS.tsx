@@ -56,6 +56,11 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
       const Paragraph = (await import("@editorjs/paragraph")).default;
       const ImageTool = (await import("@editorjs/image")).default;
 
+      // marker - underline 
+      // @ts-ignore
+      const Marker = (await import("@editorjs/marker")).default;
+      const Underline = (await import("@editorjs/underline")).default;
+
       if (destroyed) return;
 
       const editor = new EditorJS({
@@ -99,6 +104,14 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
                 },
               },
             },
+          },
+          marker: {
+            class: Marker as any,
+            shortcut: "CMD+SHIFT+M",
+          },
+          underline: {
+            class: Underline as any,
+            shortcut: "CMD+U",
           },
         } as any,
 

@@ -73,7 +73,7 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
             class: Header,
             inlineToolbar: true,
             config: {
-              levels: [2, 3, 4],
+              levels: [1, 2, 3, 4, 5],
               defaultLevel: 2,
             },
             // enable conversion từ block khác sang header (nếu tool hỗ trợ)

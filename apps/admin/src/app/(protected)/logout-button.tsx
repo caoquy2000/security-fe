@@ -8,7 +8,7 @@ export default function LogoutButton() {
 
   return (
     <button
-      className="rounded-md border px-3 py-2 text-sm hover:bg-muted disabled:opacity-50"
+      className="rounded-md border px-3 py-2 text-sm hover:bg-muted disabled:opacity-50 cursor-pointer"
       disabled={pending}
       onClick={() => startTransition(() => logoutAction())}
     >

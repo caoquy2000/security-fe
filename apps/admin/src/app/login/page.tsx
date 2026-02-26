@@ -33,7 +33,7 @@ export default function LoginPage({ searchParams }: { searchParams: { next?: str
             />
           </div>
 
-          <button className="w-full rounded-md bg-black px-3 py-2 text-white">
+          <button className="w-full rounded-md bg-black px-3 py-2 text-white cursor-pointer">
             Login
           </button>
         </form>

@@ -20,6 +20,8 @@
     "@editorjs/underline": "^1.2.1",
     "dompurify": "^3.3.1",
     "editorjs-html": "^4.0.5",
+    "editorjs-text-background-color-plugin": "^2.0.9",
+    "editorjs-undo": "^2.0.28",
     "next": "16.1.6",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",

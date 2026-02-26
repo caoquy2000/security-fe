@@ -27,7 +27,8 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
     () => `editorjs-${Math.random().toString(36).slice(2)}`,
     []
   );
-
+  const startData = normalizeEditorJsData(initialValue);
+  const undoRef = useRef<any>(null);
   const editorRef = useRef<any>(null);
   const saveTimer = useRef<any>(null);
 
@@ -60,6 +61,14 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
       // @ts-ignore
       const Marker = (await import("@editorjs/marker")).default;
       const Underline = (await import("@editorjs/underline")).default;
+
+      // text bg color 
+      // @ts-ignore
+      const TextBgColor = (await import("editorjs-text-background-color-plugin")).default;
+
+      // Undo 
+      // @ts-ignore
+      const Undo = (await import("editorjs-undo")).default;
 
       if (destroyed) return;
 
@@ -113,6 +122,10 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
             class: Underline as any,
             shortcut: "CMD+U",
           },
+          textBgColor: {
+            class: TextBgColor as any,
+            // config tùy plugin, nếu có palette thì set ở đây
+          },
         } as any,
 
         onChange: async () => {
@@ -130,10 +143,16 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
       });
 
       editorRef.current = editor;
+      await editor.isReady;
+
+      const undo = new Undo({ editor });
+      undo.initialize(startData);
+      undoRef.current = undo;
     })();
 
     return () => {
       destroyed = true;
+      undoRef.current = null;
       if (saveTimer.current) clearTimeout(saveTimer.current);
       if (editorRef.current) {
         editorRef.current.destroy?.();
@@ -151,6 +170,23 @@ const EditorJs = forwardRef<EditorJsHandle, Props>(function EditorJs(
         </span>
       </div>
       <div className="p-4">
+        <div className="mb-3 flex gap-2">
+          <button
+            type="button"
+            onClick={() => undoRef.current.undo()}
+            className="rounded-xl border border-black/15 bg-white px-3 py-2 text-sm font-semibold hover:bg-black/5"
+          >
+            Undo
+          </button>
+
+          <button
+            type="button"
+            onClick={() => undoRef.current.redo()}
+            className="rounded-xl border border-black/15 bg-white px-3 py-2 text-sm font-semibold hover:bg-black/5"
+          >
+            Redo
+          </button>
+        </div>
         <div id={holderId} />
       </div>
     </div>

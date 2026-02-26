@@ -59,6 +59,12 @@ importers:
       editorjs-html:
         specifier: ^4.0.5
         version: 4.0.5
+      editorjs-text-background-color-plugin:
+        specifier: ^2.0.9
+        version: 2.0.9
+      editorjs-undo:
+        specifier: ^2.0.28
+        version: 2.0.28
       next:
         specifier: 16.1.6
         version: 16.1.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -2126,6 +2132,12 @@ packages:
   editorjs-html@4.0.5:
     resolution: {integrity: sha512-ImQYxB3fNCJcd+nJ+Vbne/6PxidO1cYByNpu9nBDStVabfjVrMW65BuR+IEZfOii8VKYH+CW/lYDb2GDlzZtDg==}
 
+  editorjs-text-background-color-plugin@2.0.9:
+    resolution: {integrity: sha512-JnaT8dkLjp/ELQDSwYSKNg4GFn39I7GNiIlMTR5bx81oBY2r30yxaGhvJ9xELAs0qpkKamkQRDEcw2t0mZVjcg==}
+
+  editorjs-undo@2.0.28:
+    resolution: {integrity: sha512-7MiLdjIsPOXn8+cHDeAt2HapVklg4vcLWWkd2eMMlGI6UVtwYSjdQquDSv9752B/fOEP1C3NMF2sdiCoZV3tTA==}
+
   electron-to-chromium@1.5.302:
     resolution: {integrity: sha512-sM6HAN2LyK82IyPBpznDRqlTQAtuSaO+ShzFiWTvoMJLHyZ+Y39r8VMfHzwbU8MVBzQ4Wdn85+wlZl2TLGIlwg==}
 
@@ -3507,6 +3519,9 @@ packages:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  vanilla-caret-js@1.1.0:
+    resolution: {integrity: sha512-vl3R4Xjqb+xnM0gYyg+wcqWGYwKKnkz58Yj29/FQB+w+yP7R8IR1DGoJnDIs05moEZiGlQUTabPMoEtnQNcrpQ==}
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -6246,6 +6261,12 @@ snapshots:
 
   editorjs-html@4.0.5: {}
 
+  editorjs-text-background-color-plugin@2.0.9: {}
+
+  editorjs-undo@2.0.28:
+    dependencies:
+      vanilla-caret-js: 1.1.0
+
   electron-to-chromium@1.5.302: {}
 
   emoji-regex@8.0.0: {}
@@ -8033,6 +8054,8 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.4):
     dependencies:
       react: 19.2.4
+
+  vanilla-caret-js@1.1.0: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:
